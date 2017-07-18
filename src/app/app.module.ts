@@ -1,18 +1,18 @@
+import { masterFirebaseConfig } from '../api-keys';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { masterFirebaseConfig } from '../api-keys';
+import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { MemeberListComponent } from './memeber-list/memeber-list.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { CongressFormComponent } from './congress-form/congress-form.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,15 +26,16 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    MemeberListComponent
+    MemberListComponent,
+    CongressFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    routing
+    AngularFireDatabaseModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

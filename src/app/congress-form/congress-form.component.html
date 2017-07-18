@@ -1,0 +1,17 @@
+
+<h1>Find members of Congress</h1>
+
+<form>
+  <div class="form-group">
+    <label for="camera">State</label>
+    <input #state>
+  </div>
+  <div class="form-group">
+    <label for="legislators">Legislators</label>
+    <select #chamber>
+      <option value="house">House</option>
+      <option value="senate">Senate</option>
+    </select>
+  </div>
+  <button (click)="getLegislators(chamber.value)">Get Result</button>
+</form>
