@@ -9,12 +9,17 @@ import { PropublicaService } from '../propublica.service';
   providers: [ PropublicaService ]
 })
 export class CongressFormComponent {
-  legislatorsList: any[] =null;
+  legislatorsList: any[];
+
   constructor(private propublica: PropublicaService) { }
 
   getLegislators(legislators: string) {
+    // this.propublica.getAllResponses(legislators).subscribe(response => {
+    //   this.legislatorsList = response.json();
+    // });
     this.propublica.getAllResponses(legislators).subscribe(response => {
-      this.legislatorsList = response.json();
-    });
+      this.legislatorsList = response.json().results[0].members;
+    })
+    // this.legislatorsList = this.propublica.getAllResponses(legislators);
   }
 }

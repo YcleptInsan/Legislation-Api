@@ -9,12 +9,10 @@ export class PropublicaService {
 
   constructor(private http: Http) { }
 
-  getAllResponses() {
+  getAllResponses(legislators: string){
     let headers = new Headers();
     headers.append('X-API-Key', PROPUBLICA_API_KEY);
-    this.http.get('https://api.propublica.org/congress/v1/115/senate/members.json', { headers: headers })
-      .subscribe(response => {
-        console.log(response.json());
-      });
+    return this.http.get(`https://api.propublica.org/congress/v1/115/house/members.json`, { headers: headers })
+
     }
 }
